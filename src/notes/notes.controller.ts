@@ -6,4 +6,9 @@ export class NotesController {
     findAll():string{
         return 'Get all items'
     }
+
+    @Post()
+    create(): string{
+        return 'Create items'
+    }
 }
