@@ -30,4 +30,10 @@ export class NotesController {
   create(@Body() createNoteDto: CreateNoteDto): string {
     return `Title: ${createNoteDto.title} Content: ${createNoteDto.content}`;
   }
+
+  @Delete(':id')
+  delete(@Param('id') id): string{
+      return `Delete ${id}`;
+  }
+
 }
