@@ -16,11 +16,11 @@ export class NotesController {
     return 'Get all Notes';
   }
 
-//   @Get(':id')
-//   findOne(@Param() param): string {
-//     return `Note ${param.id}`;
-//   }
-//  Another way of above
+  //   @Get(':id')
+  //   findOne(@Param() param): string {
+  //     return `Note ${param.id}`;
+  //   }
+  //  Another way of above
   @Get(':id')
   findOne(@Param('id') id): string {
     return `Note ${id}`;
@@ -32,12 +32,12 @@ export class NotesController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id): string{
-      return `Delete ${id}`;
+  delete(@Param('id') id): string {
+    return `Delete ${id}`;
   }
 
   @Put(':id')
-  updae(@Body() updateNoteDto: CreateNoteDto, @Param('id') id): string{
-      return `update ${id} - Title: ${updateNoteDto.title} , Content: ${updateNoteDto.content}`
+  updae(@Body() updateNoteDto: CreateNoteDto, @Param('id') id): string {
+    return `update ${id} - Title: ${updateNoteDto.title} , Content: ${updateNoteDto.content}`;
   }
 }
