@@ -5,16 +5,19 @@ import { Note } from './interfaces/note.interface';
 @Injectable()
 export class NotesService {
   // Inside this NoteService we will have bunch of functions that we are gonna call from the constructor.
-    private readonly notes: Note[] = [
-        {
-            id: "12345",
-            title: "Note One",
-            content: "This is hi from Note One"
-        },
-        {
-            id: "12341",
-            title: "Note Two",
-            content: "This is hi from Note Two"
-        }
-    ]
+  private readonly notes: Note[] = [
+    {
+      id: '12345',
+      title: 'Note One',
+      content: 'This is hi from Note One',
+    },
+    {
+      id: '12341',
+      title: 'Note Two',
+      content: 'This is hi from Note Two',
+    },
+  ];
+  findAll(): Note[] {
+      return this.notes
+  }
 }

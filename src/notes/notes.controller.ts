@@ -8,12 +8,17 @@ import {
   Param,
 } from '@nestjs/common';
 import { CreateNoteDto } from './dto/create-note.dto';
+import { NotesService } from './notes.service';
+import { Note } from './interfaces/note.interface';
 
 @Controller('notes')
 export class NotesController {
+  // Before i can use service i have to inject it as a dependency
+  constructor(private readonly notesService: NotesService) {}
+
   @Get()
-  findAll(): string {
-    return 'Get all Notes';
+  findAll(): Note[] {
+    return this.notesService.findAll();
   }
 
   //   @Get(':id')
