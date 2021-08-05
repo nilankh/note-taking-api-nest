@@ -36,4 +36,8 @@ export class NotesController {
       return `Delete ${id}`;
   }
 
+  @Put(':id')
+  updae(@Body() updateNoteDto: CreateNoteDto, @Param('id') id): string{
+      return `update ${id} - Title: ${updateNoteDto.title} , Content: ${updateNoteDto.content}`
+  }
 }
