@@ -17,7 +17,7 @@ export class NotesController {
   constructor(private readonly notesService: NotesService) {}
 
   @Get()
-  findAll(): Note[] {
+  findAll(): Promise<Note[]> {
     return this.notesService.findAll();
   }
 
@@ -27,22 +27,22 @@ export class NotesController {
   //   }
   //  Another way of above
   @Get(':id')
-  findOne(@Param('id') id): Note {
+  findOne(@Param('id') id): Promise<Note> {
     return this.notesService.findOne(id);
   }
 
   @Post()
-  create(@Body() createNoteDto: CreateNoteDto): string {
-    return `Title: ${createNoteDto.title} Content: ${createNoteDto.content}`;
+  create(@Body() createNoteDto: CreateNoteDto): Promise<Note> {
+    return this.notesService.create(createNoteDto);
   }
 
   @Delete(':id')
-  delete(@Param('id') id): string {
-    return `Delete ${id}`;
+  delete(@Param('id') id): Promise<Note>{
+    return this.notesService.delete(id);
   }
 
   @Put(':id')
-  updae(@Body() updateNoteDto: CreateNoteDto, @Param('id') id): string {
-    return `update ${id} - Title: ${updateNoteDto.title} , Content: ${updateNoteDto.content}`;
+  updae(@Body() updateNoteDto: CreateNoteDto, @Param('id') id): Promise<Note> {
+    return this.notesService.update(id, updateNoteDto);
   }
 }
