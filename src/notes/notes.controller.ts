@@ -5,18 +5,25 @@ import {
   Put,
   Delete,
   Body,
-  Req,
-  Res,
+  Param,
 } from '@nestjs/common';
 import { CreateNoteDto } from './dto/create-note.dto';
-import { Request, Response } from 'express';
 
 @Controller('notes')
 export class NotesController {
   @Get()
-  findAll(@Req() req: Request, @Res() res: Response): Response {
-    console.log(req.url);
-    return res.send('Hello world');
+  findAll(): string {
+    return 'Get all Notes';
+  }
+
+//   @Get(':id')
+//   findOne(@Param() param): string {
+//     return `Note ${param.id}`;
+//   }
+//  Another way of above
+  @Get(':id')
+  findOne(@Param('id') id): string {
+    return `Note ${id}`;
   }
 
   @Post()
