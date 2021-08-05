@@ -18,6 +18,10 @@ export class NotesService {
     },
   ];
   findAll(): Note[] {
-      return this.notes
+      return this.notes;
+  }
+
+  findOne(id: string): Note{
+      return this.notes.find(note => note.id === id);
   }
 }

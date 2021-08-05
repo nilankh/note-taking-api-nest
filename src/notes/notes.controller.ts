@@ -27,8 +27,8 @@ export class NotesController {
   //   }
   //  Another way of above
   @Get(':id')
-  findOne(@Param('id') id): string {
-    return `Note ${id}`;
+  findOne(@Param('id') id): Note {
+    return this.notesService.findOne(id);
   }
 
   @Post()
